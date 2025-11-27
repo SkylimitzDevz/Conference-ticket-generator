@@ -58,7 +58,15 @@
     <div class="create-ticket-section">
       <div class="create-section">
         <label class="upload-section">
-          <img src="icons/icon-upload.svg" alt="" width="50" />
+          <div class="preview-image-conatiner">
+            <img
+              src="icons/icon-upload.svg"
+              alt=""
+              width="50"
+              id="preview-img"
+              accept="image/*"
+            />
+          </div>
           <input type="file" accept="image/*" id="image-input" />
           <p>Drag and drop or click to upload</p>
         </label>
@@ -106,9 +114,11 @@
         </div>
         <div class="user-info">
           <div class="profile-img">
-            <div id="profile-img">
-              <img src="icons/image-avatar.jpg" alt="avatar" />
-            </div>
+            <img
+              src="icons/image-avatar.jpg"
+              alt="avatar"
+              id="profile-img-output"
+            />
           </div>
           <div class="unser-details">
             <h2 id="username-el">Jhone doe</h2>
@@ -143,4 +153,5 @@
       Coded by <a href="#">Your Name Here</a>.
     </div>
   </body>
+  <script src="app.js"></script>
 </html>
