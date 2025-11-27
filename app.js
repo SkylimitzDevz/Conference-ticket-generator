@@ -19,6 +19,12 @@ const ticketProfileImg = document.getElementById("profile-img-output")
 const nameEl = document.getElementById("username-el")
 const githubUsernameEl = document.getElementById("github-username-el")
 const ticketIdEl = document.getElementById("ticket-id")
+const title = document.getElementById("titleEl")
+const subTitle = document.getElementById("subTitleEl")
+
+
+//elements
+const ticket = document.querySelector(".ticket-section")
 
 // views/screens
 const createTicketView = document.querySelector(".create-ticket-section")
@@ -69,15 +75,17 @@ generateBtn.addEventListener("click", function() {
         }
 
     else{
+        playAnimation()
         // identify which ones input boxes are empty and inidcate them :p
         for(i = 0; i < results.length; i++) {
             const currentEl = document.getElementById(results[i].id)
             
             if(results[i].isEmpty){
-                currentEl.style.borderColor = "var(--red)"
+                currentEl.style.outline = "2px solid var(--Neutral-500)";
             }
             else{
                 currentEl.style.borderColor = "var(--green)"
+                currentEl.style.outline = "none"
             }
 
 
@@ -96,6 +104,7 @@ generateBtn.addEventListener("click", function() {
 
 // ticket generator
 function generateTicket() {
+    fadeInAnimation()
     ticketView.style.display = "flex"
     createTicketView.style.display = "none"
 
@@ -104,6 +113,9 @@ function generateTicket() {
     nameEl.textContent = nameInput.value
     githubUsernameEl.textContent = "@" + usernameInput.value
     ticketIdEl.textContent = "#" + generateId()
+
+    title.innerHTML = `Congrats, <span>${nameInput.value}!</span> Your ticket is ready.`
+    subTitle.innerHTML = `We've emailed your ticket to <br> <span>${emailInput.value}</span> and will send updates in the run up to the event.`
 }
 
 
@@ -118,3 +130,20 @@ function generateId() {
     return idNum
 }
 
+// animation stuff
+
+function playAnimation() {
+    generateBtn.classList.add("play-animation")
+
+    setTimeout(function() {
+        generateBtn.classList.remove("play-animation")
+    },2000)
+}
+
+function fadeInAnimation() {
+    ticket.classList.add("fadein")
+
+    setTimeout(function() {
+        ticket.classList.remove("fadein")
+    },5000)
+}
