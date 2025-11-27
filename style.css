@@ -214,7 +214,6 @@ button{
     display: flex;
     gap: clamp(8px, 2vw, 20px);
     justify-content: space-between;
-    border: 2px solid;
     box-sizing: border-box;
     aspect-ratio: 560 / 270;
     max-height: 80vh;
@@ -268,16 +267,15 @@ button{
 }
 
 .ticket-content{
-    border: 2px solid;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: auto;
+    padding:10px;
 }
 
 .id-container{
-    border: 2px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -301,6 +299,9 @@ button{
         height: auto;
         width: auto;
     }
+    body{
+        background-image: url(images/background-tablet.png);
+    }
 }
 
 @media(max-width: 1110px){
@@ -322,12 +323,8 @@ button{
         background-image: url(images/background-mobile.png);
     }
 
-    .ticket-section{
-        transform: scale(0.9);
-        
+    .logo{
+        margin-bottom: 0px;
     }
 
-    .user-info{
-        transform: scale(0.5);
-    }
 }
