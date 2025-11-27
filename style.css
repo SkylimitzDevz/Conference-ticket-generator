@@ -35,6 +35,8 @@ body,main{
     --Orange-500: hsl(7, 88%, 67%);
     --Orange-700: hsl(7, 71%, 60%);
     --Gradient-text: hsl(7, 86%, 67%) to hsl(0, 0%, 100%);
+    --green: rgba(0, 255, 0, 0.479);
+    --red: rgba(255, 68, 99, 0.534);
 }
 
 
@@ -82,7 +84,7 @@ button{
     flex-direction: column;
     gap: 20px;
     box-sizing: border-box;
-    display: none;
+    display: flex;
 }
 
 .inputs{
@@ -103,7 +105,7 @@ button{
 }
 
 .create-section{
-    border: 2px dotted var(--Neutral-500);
+    border: 2px dashed var(--Neutral-500);
     border-radius: 20px;
     height: 160px;
     backdrop-filter: blur(10px);
@@ -144,12 +146,7 @@ button{
     color: var(--Neutral-500);
     font-weight: 500;
 }
-
-.upload-section img{
-    background: var(--Neutral-700);
-    border-radius: 10px;
-    border: 2px solid var(--stroke);
-}
+ 
 
 .logo{
     position: fixed;
@@ -162,7 +159,22 @@ button{
     z-index: -1;
 }
 
+.preview-image-conatiner{
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--Neutral-700);
+    border-radius: 10px;
+    border: 2px solid var(--stroke);
+}
 
+#preview-img{
+    width: 100%;
+    height: auto;
+    object-fit:cover;
+}
 
 #image-input{
     display: none;
@@ -211,7 +223,7 @@ button{
     background-size: contain;
     background-image: url(images/pattern-ticket.svg);
     padding: clamp(12px, 2.5vw, 20px);
-    display: flex;
+    display: none;
     gap: clamp(8px, 2vw, 20px);
     justify-content: space-between;
     box-sizing: border-box;
@@ -273,6 +285,7 @@ button{
     justify-content: space-between;
     width: auto;
     padding:10px;
+    gap: 30px;
 }
 
 .id-container{
@@ -318,13 +331,17 @@ button{
     }
 }
 
-@media(max-width:375px){
+@media(max-width:480px){
     body{
         background-image: url(images/background-mobile.png);
+        background-size: cover;
+        background-position: center;
     }
 
     .logo{
         margin-bottom: 0px;
     }
 
+
 }
+
