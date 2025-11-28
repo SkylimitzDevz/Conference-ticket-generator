@@ -363,7 +363,7 @@ button{
     transform: rotate(-90deg);
     transform-origin: center;
     font-size: clamp(15px, 2.5vw, 18px);
-    color: var(--Neutral-700);
+    color: var(--Neutral-300);
 }
 
 #date-time{
