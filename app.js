@@ -6,6 +6,10 @@ const usernameInput = document.getElementById("github-username-input")
 
 //other stuff
 const generateBtn = document.getElementById("generate-btn")
+const delImgBtn = document.getElementById("del-img-btn")
+const chnageImgBtn = document.getElementById("chnage-img-btn")
+const editBtns = document.querySelector(".img-edit-btn-container")
+
 const inputImgPreview = document.getElementById("preview-img")
 const imageUploadSection = document.querySelector(".create-section")
 
@@ -37,6 +41,7 @@ let results = []
 imageInput.addEventListener("change", function() {
     if(imageInput.files[0]) {
         inputImgPreview.src = URL.createObjectURL(imageInput.files[0]);
+        editBtns.style.display = "flex"
     }
 })
 
@@ -116,6 +121,9 @@ function generateTicket() {
 
     title.innerHTML = `Congrats, <span>${nameInput.value}!</span> Your ticket is ready.`
     subTitle.innerHTML = `We've emailed your ticket to <br> <span>${emailInput.value}</span> and will send updates in the run up to the event.`
+
+    //set date
+    dateTime.textContent = getDate()
 }
 
 
@@ -146,4 +154,24 @@ function fadeInAnimation() {
     setTimeout(function() {
         ticket.classList.remove("fadein")
     },5000)
+}
+
+//remove img
+delImgBtn.addEventListener("click", function() {
+    imageInput.value = ""
+    inputImgPreview.src = "icons/icon-upload.svg"
+    editBtns.style.display = "none"
+})
+
+
+// date grabber
+const now = new Date()
+const months = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+
+function getDate() {
+    let month = months[now.getMonth()]
+    return `${month} ${now.getDay()} ${now.getFullYear()}, Austin/TX`
 }
